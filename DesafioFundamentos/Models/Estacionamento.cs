@@ -1,9 +1,11 @@
+using System.Globalization;
+
 namespace DesafioFundamentos.Models
 {
     public class Estacionamento
     {
-        private decimal precoInicial = 0;
-        private decimal precoPorHora = 0;
+        private decimal precoInicial = 0.00M;
+        private decimal precoPorHora = 0.00M;
         private List<string> veiculos = new List<string>();
 
         public Estacionamento(decimal precoInicial, decimal precoPorHora)
@@ -50,7 +52,7 @@ namespace DesafioFundamentos.Models
                 // *IMPLEMENTE AQUI*
                 veiculos.Remove(placa.ToUpper());
 
-                Console.WriteLine($"O veículo {placa.ToUpper()} foi removido e o preço total foi de: R$ {valorTotal}.");
+                Console.WriteLine("O veículo {placa.ToUpper()} foi removido e o preço total foi de: R$ " + String.Format(CultureInfo.GetCultureInfo("pt-BR"), "{0:N2}", valorTotal) + ".");
             }
             else
             {
